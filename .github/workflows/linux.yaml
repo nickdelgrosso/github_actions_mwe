@@ -1,1 +1,13 @@
-Hi
+name: Linux Workflow
+on: [push]
+jobs:
+  main:
+    name: Run Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Say Hi
+        run: |
+          echo "Hello World"
+        
+    
