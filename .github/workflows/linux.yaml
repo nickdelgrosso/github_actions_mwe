@@ -18,8 +18,7 @@ jobs:
       - name: Create Conda Environment
         run: |
           conda env create -f environment.yml
-      - name: Test Conda Environment Works
-        run: |
-          conda run -n actions-mwe python --version
+          conda run -n actions-mwe python --version  # https://pythonspeed.com/articles/activate-conda-dockerfile/
+          
           
     
