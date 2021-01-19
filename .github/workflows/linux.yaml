@@ -20,11 +20,14 @@ jobs:
         run: |
           conda env create -f environment.yml
           conda run -n actions-mwe python --version  # https://pythonspeed.com/articles/activate-conda-dockerfile/
-      - name: Add hello.txt to repo
+      - name: Run Histogram Script
+        run: |
+          conda run -n actions-mwe python generate_histogram.py
+      - name: Upload Histogram PDF as Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: the-artifact
-          path: ./hello.txt
+          name: histogram
+          path: ./result.pdf
           
           
     
