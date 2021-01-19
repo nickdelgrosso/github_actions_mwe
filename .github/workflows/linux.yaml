@@ -8,7 +8,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Say Hi
         run: |
-          echo "Hello World"
+          echo "Hello World" > hello.txt
+          
       - name: Download and Install Miniconda
         run: |
           wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
@@ -19,6 +20,11 @@ jobs:
         run: |
           conda env create -f environment.yml
           conda run -n actions-mwe python --version  # https://pythonspeed.com/articles/activate-conda-dockerfile/
+      - name: Add hello.txt to repo
+        uses: actions/upload-artifact@v2
+        with:
+          name: the-artifact
+          path: ./hello.txt
           
           
     
