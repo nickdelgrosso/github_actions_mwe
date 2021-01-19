@@ -1,1 +1,18 @@
 
+# YAML Example
+# example.yaml
+# List of Pets
+name: Nick Del Grosso
+address: 123 Example St.
+pets:
+  - name: Buttonz
+    species: dog
+    likes:
+      - taking long walks
+      - begging for treats
+  - name: Casey
+    species: cat
+    likes:
+      - scratching Nick's face
+age: 22
+
