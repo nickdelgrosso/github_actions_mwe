@@ -9,5 +9,14 @@ jobs:
       - name: Say Hi
         run: |
           echo "Hello World"
-        
+      - name: Download and Install Miniconda
+        run: |
+          wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+          bash ~/miniconda.sh -b
+          export PATH=~/miniconda3/bin:$PATH
+          conda update --yes conda
+      - name: Install Numpy
+        run: |
+          conda install numpy
+          
     
