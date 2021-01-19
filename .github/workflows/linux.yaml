@@ -18,7 +18,8 @@ jobs:
       - name: Create Conda Environment
         run: |
           conda env create -f environment.yml
-          source activate actions-mwe
-          conda list
+      - name: Test Conda Environment Works
+        run: |
+          conda run -n actions-mwe python --version
           
     
