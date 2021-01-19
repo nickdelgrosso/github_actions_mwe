@@ -15,8 +15,10 @@ jobs:
           bash ~/miniconda.sh -b
           export PATH=~/miniconda3/bin:$PATH
           conda update --yes conda
-      - name: Install Numpy
+      - name: Create Conda Environment
         run: |
-          conda install numpy
+          conda env create -f environment.yml
+          conda activate actions-mwe
+          conda list
           
     
