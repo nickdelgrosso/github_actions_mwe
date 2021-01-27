@@ -1,33 +1,11 @@
-name: Linux Workflow
-on: [push]
+on:
+  push:
+    branches: 
+      - main
 jobs:
-  main:
-    name: Run Workflow
+  runcode:
+    name: Run the Code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Say Hi
-        run: |
-          echo "Hello World" > hello.txt
-          
-      - name: Download and Install Miniconda
-        run: |
-          wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
-          bash ~/miniconda.sh -b
-          export PATH=~/miniconda3/bin:$PATH
-          conda update --yes conda
-      - name: Create Conda Environment
-        run: |
-          conda env create -f environment.yml
-          conda run -n actions-mwe python --version  # https://pythonspeed.com/articles/activate-conda-dockerfile/
-      - name: Run Histogram Script
-        run: |
-          conda run -n actions-mwe python generate_histogram.py
-      - name: Upload Histogram PDF as Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: histogram
-          path: ./results.pdf
-          
-          
-    
+      - name: Hello World
+        run: echo "Hi!"
